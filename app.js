@@ -1,13 +1,13 @@
+var gzippo = require('gzippo');
 var express = require('express');
 var logfmt = require('logfmt');
 var app = express();
 app.use(logfmt.requestLogger());
-
-app.get('/', function(req, res) {
-    res.send('hello');
+app.use('/scripts', gzippo.staticGzip('' + __dirname + '/../dist/scripts'));
+app.use('/images', gzippo.staticGzip('' + __dirname + '/../dist/images'));
+app.use('/styles', gzippo.staticGzip('' + __dirname + '/../dist/styles'));
+app.use('/views', gzippo.staticGzip('' + __dirname + '/../dist/views'));
+app.all('/*', function(req, res, next) {
+    res.sendfile('index.html', {root: __dirname + '/../dist'});
 });
-app.use(function(err, req, res, next){ if (req.xhr) { res.send(500, 'Something went wrong!'); } else { next(err); } });
-
-console.log('starting');
-app.listen(5000);
-console.log('listening on 5000');
+app.listen(process.env.PORT || 5000);
