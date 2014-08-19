@@ -20,7 +20,6 @@
    <div class="row-wrap">
     <div class="row">
         <div class="large-12 columns text-center">
-            <a href="/">Main</a> &nbsp;&nbsp; <a href="/about">About</a>
             <div ng-view=""></div>            
         </div>
     </div>
@@ -51,6 +50,9 @@
     <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
     <script src="bower_components/foundation/js/foundation.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -58,6 +60,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/config/config.js"></script>
+        <script src="scripts/services/message.js"></script>
+        <script src="scripts/utils/firebase.utils.js"></script>
         <!-- endbuild -->
 </body>
 </html>

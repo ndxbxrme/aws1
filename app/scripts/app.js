@@ -10,6 +10,9 @@
  */
 angular
   .module('awsApp', [
+    'awsApp.config',
+    'awsApp.services',
+    'firebase.utils',
     'ngAnimate',
     'ngCookies',
     'ngResource',

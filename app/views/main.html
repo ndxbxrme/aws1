@@ -1,2 +1,7 @@
-<h1>Main</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis optio assumenda neque tempora voluptatum odio earum natus veritatis? Officia perferendis dolore deserunt asperiores provident animi enim omnis? Provident enim facilis dolorem saepe obcaecati sequi eaque sint odit hic aliquid similique commodi, asperiores repudiandae quisquam inventore!</p>
+<div class="clear panel" style="overflow: hidden"><div ng-repeat="(id,message) in messages" style="background: url('{{message.img}}') center center; background-size: cover" ng-click="removeItem(message)" class="item"><h5>{{message.name}}</h5><h4>{{message.price}}</h4></div></div>
+<div class="clear panel">
+<input ng-model="newName" type="text" placeholder="name" style="margin-top: 46px" />
+<input ng-model="newPrice" type="text" placeholder="price" />
+<input ng-model="newImg" type="text" placeholder="Image src" />
+<button ng-click="addMessage(newName,newPrice,newImg);newName=null;newPrice=null;newImg=null;message=null;">{{message ? 'Edit' : 'Save'}}</button>
+</div>
