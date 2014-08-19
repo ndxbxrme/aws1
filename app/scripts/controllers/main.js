@@ -9,6 +9,7 @@
  */
 angular.module('awsApp')
     .controller('MainCtrl', function ($scope, messageList) {
+        var removed = false;
         $scope.message = null;
         $scope.messages = messageList;
         $scope.addMessage = function(newName,newPrice,newImg) {
@@ -22,10 +23,18 @@ angular.module('awsApp')
                 }
             }
         };
+        $scope.editItem = function(m) {
+            if(!removed) {
+                $scope.message = m;  
+                $scope.newName = m.name;
+                $scope.newPrice = m.price;
+                $scope.newImg = m.img;
+            } else {
+                removed = false;
+            }
+        };
         $scope.removeItem = function(m) {
-            $scope.message = m;  
-            $scope.newName = m.name;
-            $scope.newPrice = m.price;
-            $scope.newImg = m.img;
+            $scope.messages.$remove(m);
+            removed = true;
         };
     });
